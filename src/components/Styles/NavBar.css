@@ -1,0 +1,44 @@
+.darkTheme_Container {
+    height: 1.8rem;
+    width: 1.8rem;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.darkTheme_toggle {
+    border-radius: 100%;
+    position: absolute;
+    background-color: black;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(77% 0, 100% 0, 100% 100%, 76% 100%);
+    transition: clip-path 0.2s ease-in-out;
+}
+
+.active_darktheme {
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 30% 100%);
+}
+
+.desactive_darkTheme {
+    clip-path: polygon(77% 0, 100% 0, 100% 100%, 76% 100%);
+}
+
+.default_theme_Navbar{
+    color: white;
+}
+
+.navbarMobileClose{
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.navbarMobileOpen{
+    display: flex;
+    height: 150px;
+    visibility: visible;
+    opacity: 100;
+}
