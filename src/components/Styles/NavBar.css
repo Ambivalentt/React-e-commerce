@@ -26,19 +26,39 @@
     clip-path: polygon(77% 0, 100% 0, 100% 100%, 76% 100%);
 }
 
-.default_theme_Navbar{
+.default_theme_Navbar {
     color: white;
 }
 
-.navbarMobileClose{
+.navbarMobileClose {
     height: 0;
     visibility: hidden;
     opacity: 0;
 }
 
-.navbarMobileOpen{
+.navbarMobileOpen {
     display: flex;
-    height: 150px;
+    height: 170px;
     visibility: visible;
     opacity: 100;
+}
+
+
+.underline-animation {
+    position: relative;
+}
+
+.underline-animation::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 23px;
+    background-color: red;
+    height: 4px;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+}
+.underline-animation:hover::after{
+    width: 100%;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out; 
 }
