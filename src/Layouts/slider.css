@@ -1,0 +1,6 @@
+.custom-btn {
+    color: black;
+    font-size: 2rem;
+    position: absolute;
+    z-index: 10;
+}

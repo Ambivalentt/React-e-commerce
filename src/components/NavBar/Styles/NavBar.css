@@ -62,3 +62,23 @@
     width: 100%;
     transition: width 0.3s ease-in-out, left 0.3s ease-in-out; 
 }
+
+.underline-animation-mobile {
+    position: relative;
+    
+}
+
+.underline-animation-mobile::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 23px;
+    background-color: red;
+    height: 4px;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+}
+.underline-animation-mobile:hover::after{
+    width: 100%;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out; 
+}
