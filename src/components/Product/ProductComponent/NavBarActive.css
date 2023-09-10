@@ -1,0 +1,31 @@
+.navbar-active {
+    position: relative;
+}
+
+.navbar-active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 18px;
+    background-color: red;
+    height: 2px;
+    width: 0;
+    transition: width 0.1s ease-in-out;
+}
+.navbar-active:hover::after{
+    width: 100%;
+    transition: width 0.1s ease-in-out, left 0.1s ease-in-out; 
+}
+.active{
+    position: relative;
+}
+
+.active::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 18px;
+    background-color: red;
+    height: 2px;
+    width: 100%;
+}
