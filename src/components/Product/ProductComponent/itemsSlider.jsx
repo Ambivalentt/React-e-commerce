@@ -37,7 +37,7 @@ const SliderContainer = () => {
                 </main>
                 :
                 <>
-                    <main className="grid grid-cols-2 justify-center gap-y-10 items-center" >
+                    <main className="grid grid-cols-1  lg:grid-cols-2 justify-center gap-y-10 items-center" >
                         {Object.keys(categories).map((category) => (
                             <SliderItems key={category} products={categories[category]} />
 

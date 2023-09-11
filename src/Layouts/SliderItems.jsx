@@ -37,7 +37,7 @@ const SliderItems = ({ products }) => {
     return (
         <section className={`pb-8 transition-opacity ${showContent ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}>
-            <article className='relative flex justify-center md:max-w-2xl mx-auto'>
+            <article className='relative flex justify-center lg:max-w-[440px] md:max-w-2xl xl:max-w-[35rem] mx-auto'>
                 <Swiper
                     onSwiper={(swiper) => (swiperRef.current = swiper)}
                     modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
@@ -68,8 +68,8 @@ const SliderItems = ({ products }) => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <button className='custom-btn top-[44%] -left-10 ' onClick={goPrev}> <FaChevronLeft /> </button>
-                <button className='custom-btn top-[44%] -right-10' onClick={goNext}><FaChevronRight /></button>
+                <button className='hidden lg:block custom-btn top-[44%] -left-10 ' onClick={goPrev}> <FaChevronLeft /> </button>
+                <button className='hidden lg:block custom-btn top-[44%] -right-10' onClick={goNext}><FaChevronRight /></button>
 
             </article>
         </section>

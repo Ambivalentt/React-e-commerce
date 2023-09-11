@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import { useParams } from "react-router-dom"
-
+import ItemDetails from '../../../Layouts/ItemDetail'
 const MovilDetails = () =>{
     const [product, setProduct] = useState(null)
     const {id} = useParams()
@@ -18,9 +18,16 @@ const MovilDetails = () =>{
         return <p>Loading... </p>;
       }
     return(
-        <h1>
-            {product.title}
-        </h1>
+           <main className='mt-10 flex items-center'>
+             <ItemDetails 
+            img={product.images} 
+            title={product.title}
+            description={product.description} 
+            brand={product.brand}
+            price={product.price}
+            stock={product.stock}
+            />
+           </main>
     )   
 }
 

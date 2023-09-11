@@ -40,10 +40,10 @@ const NavbarProducts = () => {
     ]
     return (
         <nav
-            className={`pt-[6rem] pb-8 ms-[4rem] transition-opacity duration-[2s]  ${showNav ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            className={`pt-[6rem] pb-8 lg:ms-[4rem] transition-opacity duration-[2s]  ${showNav ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 }`}
         >
-            <ul className='flex gap-x-3 font-bold uppercase text-sm font-mono'>
+            <ul className='flex flex-wrap items-center justify-center lg:justify-start ps-1 gap-x-3 md:gap-x-3 font-bold uppercase text-sm font-mono'>
                 {routes.map((product) => (
                     <li key={product.path} className='font-custom'>
                         <NavLink to={`/products${product.path}`}

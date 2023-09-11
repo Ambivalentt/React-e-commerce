@@ -8,6 +8,7 @@ import Banner3 from '../assets/Banner3.webp';
 import Banner4 from '../assets/Banner4.webp';
 import Banner0 from '../assets/Banner0.jpg';
 import Banner23 from '../assets/Banner23.jpg';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import './slider.css'
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -29,8 +30,8 @@ const Slider = () => {
     };
 
     return (
-        <section className='relative w-full md:max-w-7xl mx-auto'>
-            <Swiper className='md:max-w-7xl mx-6'
+        <section className='relative w-full max-w-xl sm:max-w-2xl md:max-w-2xl mx-auto lg:max-w-5xl xl:max-w-7xl'>
+            <Swiper className=' md:max-w-7xl'
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
                 modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={0}
@@ -50,10 +51,8 @@ const Slider = () => {
                 <SwiperSlide><img src={Banner4} alt="" /></SwiperSlide>
                 <SwiperSlide><img src={Banner23} alt="" /></SwiperSlide>
             </Swiper>
-            <div className='absolute inset-0 z-10 flex justify-between items-center px-1'>
-                <button className='custom-btn text-xs' onClick={goPrev}>Anterior</button>
-                <button className='custom-btn text-xs' onClick={goNext}>Siguiente</button>
-            </div>
+                <button className='hidden md:block custom-btn text-xs top-[50%] md:-left-10' onClick={goPrev}><FaChevronLeft/></button>
+                <button className='hidden md:block custom-btn text-xs top-[50%] md:-right-10' onClick={goNext}><FaChevronRight/></button>
         </section>
     )
 }

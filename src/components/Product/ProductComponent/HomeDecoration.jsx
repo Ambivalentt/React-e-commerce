@@ -3,9 +3,9 @@ import ProductsByCategory from "./ProductsByCategory"
 import Footer from '../../../Layouts/Footer'
 
 
-const HomeDecoration = () =>{
+const HomeDecoration = () => {
     const [homeDecoration, setHomeDecoration] = useState([])
-    
+
     useEffect(() => {
         fetch('https://dummyjson.com/products?limit=100')
             .then(response => response.json())
@@ -13,10 +13,10 @@ const HomeDecoration = () =>{
                 setHomeDecoration(data.products.filter(item => item.category === 'home-decoration'))
             })
             .catch(error => console.error('Error fetching laptops', error))
-    },[])
+    }, [])
     return (
         <>
-            <main className='grid grid-cols-3 gap-y-5 w-full mx-auto max-w-5xl pb-4'>
+            <main className='grid grid-cols-1 sm:grid-cols-2 place-items-center  gap-y-7 lg:grid-cols-3  w-full mx-auto max-w-5xl pb-4'>
                 {homeDecoration.map(homeDecoration => (
                     <ProductsByCategory
                         key={homeDecoration.id}

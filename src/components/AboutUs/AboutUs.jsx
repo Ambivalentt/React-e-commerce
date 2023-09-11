@@ -1,7 +1,9 @@
+import React,{useState} from 'react'
+import WorkingProgress from '../../assets/workingProgress.jpg'
 const AboutUs = () =>{
     return (
-        <main className="pt-[40px]">
-            <h2>Hola desde AboutUs</h2>
+        <main className="pt-[1px] h-screen w-full flex items-center justify-center ">
+            <img className='' src={WorkingProgress} alt="" />
         </main>
     )
 }

@@ -1,0 +1,38 @@
+.btn_Default{
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.span-transition,
+.button-transition {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.span-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.button-transition {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.button-visible {
+    transform: translateY(-60%);
+    opacity: 1;
+}
+
+.hovered .span-transition {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.hovered .button-transition {
+    transform: translateY(0);
+    opacity: 1;
+}

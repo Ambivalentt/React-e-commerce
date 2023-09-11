@@ -51,7 +51,7 @@ const Navbar = () => {
                 ${menuBtn ? 'navbarMobileOpen' : 'navbarMobileClose'}
                 `}>
                         {routes.map(route => (
-                            <li className='flex' key={route.path}> <NavLink className='underline-animation-mobile' to={route.path}>{route.text}</NavLink></li>
+                            <li className='flex' key={route.path}>  <NavLink to={route.path} className={({ isActive }) => `underline-animation ${isActive ? 'activeNav' : ''}`} key={route.path}>{route.text}</NavLink></li>
                         ))}
                     </ul>
                     {/* Menu Mobile */}

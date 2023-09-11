@@ -15,7 +15,7 @@ const Moviles = () => {
     }, [])
     return (
      <>
-       <main className='grid grid-cols-3 w-full mx-auto max-w-5xl pb-4'>
+       <main className='grid grid-cols-1 sm:grid-cols-2 place-items-center  gap-y-7 lg:grid-cols-3  w-full mx-auto max-w-5xl pb-4'>
          {productMoviles.map(product => (
              <ProductsByCategory
                 key={product.id}

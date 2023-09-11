@@ -24,11 +24,11 @@ const Footer = () => {
           }`}
         >
             <main className="bg-gray-200 w-full shadow-xl max-w-5xl h-64 mx-auto p-5 rounded-xl items-center  ">
-                <section className="flex border-gray-400 pb-14 border-b-2 ">
-                    <figure className="flex w-2/6 h-full">
+                <section className="flex border-gray-400 flex-col gap-y-10 lg:gap-y-0 lg:flex-row justify-center items-center pb-14 border-b-2 ">
+                    <figure className="flex lg:w-2/6 h-full">
                         <img className="flex w-40" src={Stackblack} alt="" />
                     </figure>
-                    <article className="flex w-4/6 justify-center gap-x-6">
+                    <article className="flex lg:w-4/6 justify-center gap-x-6">
                         <ul className="flex flex-col text-gray-700 gap-y-3">
                             <p className="font-bold">ABOUT</p>
                             <li>Tailwind CSS</li>
