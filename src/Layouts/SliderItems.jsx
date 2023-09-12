@@ -35,9 +35,9 @@ const SliderItems = ({ products }) => {
     };
 
     return (
-        <section className={`pb-8 transition-opacity ${showContent ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        <section className={` transition-opacity ${showContent ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}>
-            <article className='relative flex justify-center lg:max-w-[440px] md:max-w-2xl xl:max-w-[35rem] mx-auto'>
+            <article className='relative  flex justify-center lg:max-w-[440px] md:max-w-2xl xl:max-w-[35rem] mx-auto'>
                 <Swiper
                     onSwiper={(swiper) => (swiperRef.current = swiper)}
                     modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}

@@ -2,6 +2,7 @@ import { FiStar } from "react-icons/fi";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 const ProductsByCategory = ({ title, images, stock, rating, id, category }) => {
+
     return (
         <section className="flex">
             <Link to={`/products/${category}/${id}`}>

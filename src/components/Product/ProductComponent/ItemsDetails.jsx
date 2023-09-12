@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import { useParams } from "react-router-dom"
 import ItemDetails from '../../../Layouts/ItemDetail'
-const MovilDetails = () =>{
+const ItemsDetails = () =>{
     const [product, setProduct] = useState(null)
     const {id} = useParams()
     
@@ -14,6 +14,7 @@ const MovilDetails = () =>{
         })
         .catch(error=> console.error('error finding this product', error))
     },[id])
+    
     if (product === null) {
         return <p>Loading... </p>;
       }
@@ -31,4 +32,4 @@ const MovilDetails = () =>{
     )   
 }
 
-export default MovilDetails
+export default ItemsDetails

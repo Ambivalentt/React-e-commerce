@@ -42,7 +42,7 @@ const Navbar = () => {
     ]
     return (
         <header>
-            <nav className={`flex items-center fixed w-full z-20 justify-between shadow-xl transition-all duration-500 px-2 h-16 ${theme ? 'bg-black' : 'bg-gray-200'}`}>
+            <nav className={`flex items-center fixed w-full z-20 justify-between shadow-xl transition-all duration-500 px-2 md:px-10 h-16 ${theme ? 'bg-black' : 'bg-gray-200'}`}>
                 <div className={`block md:hidden relative text-5xl ${theme ? 'text-white' : 'text-black'}`}>
                     {/* Menu Mobile */}
                     <BiMenu onClick={handleMenuBtn} />

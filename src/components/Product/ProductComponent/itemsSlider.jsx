@@ -32,12 +32,12 @@ const SliderContainer = () => {
     return (
         <>
             {loader ?
-                <main className='h-screen fixed inset-0 grid place-items-center overflow-y-scroll'>
+                <main className='h-screen fixed inset-0 grid place-items-center '>
                     <PropagateLoader color="#838d8b" />
                 </main>
                 :
                 <>
-                    <main className="grid grid-cols-1  lg:grid-cols-2 justify-center gap-y-10 items-center" >
+                    <main className="grid grid-cols-1 w-full lg:max-w-7xl mx-auto  lg:grid-cols-2 justify-center gap-20 items-center" >
                         {Object.keys(categories).map((category) => (
                             <SliderItems key={category} products={categories[category]} />
 

@@ -22,7 +22,7 @@ const NavbarProducts = () => {
             text: 'Home'
         },
         {
-            path: '/moviles',
+            path: '/smartphones',
             text: 'Moviles'
         },
         {
