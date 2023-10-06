@@ -2,7 +2,7 @@
     height: 1.8rem;
     width: 1.8rem;
     position: relative;
-    background-color: #ffffff;
+    background-color: black;
     border-radius: 100%;
     cursor: pointer;
 }
@@ -10,7 +10,7 @@
 .darkTheme_toggle {
     border-radius: 100%;
     position: absolute;
-    background-color: black;
+    background-color: white;
     right: 0;
     height: 100%;
     width: 100%;
@@ -26,21 +26,19 @@
     clip-path: polygon(77% 0, 100% 0, 100% 100%, 76% 100%);
 }
 
-.default_theme_Navbar {
-    color: white;
-}
-
 .navbarMobileClose {
+    transform: translateY(-100%);
     height: 0;
     visibility: hidden;
     opacity: 0;
 }
 
 .navbarMobileOpen {
-    display: flex;
-    height: 170px;
+    transform: translateY(0);
+    height: 120px;
     visibility: visible;
     opacity: 100;
+    padding: 20px 0;
 }
 
 
@@ -48,53 +46,52 @@
     position: relative;
 }
 
+.underline-animation::before,
 .underline-animation::after {
     content: '';
     position: absolute;
-    left: 0;
     top: 23px;
-    background-color: red;
-    height: 4px;
+    height: 3px;
     width: 0;
     transition: width 0.1s ease-in-out;
+    background-color: red;
 }
-.underline-animation:hover::after{
-    width: 100%;
-    transition: width 0.s ease-in-out, left 0.1s ease-in-out; 
+
+.underline-animation::before {
+    left: 0;
+}
+
+.underline-animation::after {
+    right: 0;
+}
+
+.underline-animation:hover::before,
+.underline-animation:hover::after {
+    width: 50%;
+    transition: width 0.2s ease-in-out;
 }
 
 .underline-animation-mobile {
     position: relative;
-    
+
+}
+
+.underline-animation-mobile::before {
+    left: 0;
 }
 
 .underline-animation-mobile::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 23px;
-    background-color: red;
-    height: 4px;
-    width: 0;
-    transition: width 0.1s ease-in-out;
-}
-.underline-animation-mobile:hover::after{
-    width: 100%;
-    transition: width 0.1s ease-in-out, left 0.1s ease-in-out; 
+    right: 0;
 }
 
+.underline-animation:hover::before,
+.underline-animation:hover::after {
+    width: 50%;
+    transition: width 0.2s ease-in-out;
+}
 
 /*ACTIVE*/
 .activeNav {
-    position: relative;
+   color: red;
 }
 
-.activeNav::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 23px;
-    background-color: red;
-    height: 4px;
-    width: 100%;
-}

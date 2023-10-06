@@ -3,6 +3,7 @@ import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/module
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FiStar } from "react-icons/fi";
 import { FiShoppingCart } from "react-icons/fi";
+import { useTheme } from '../components/Context/ThemeProvider';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -11,11 +12,11 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const SliderItems = ({ products }) => {
     const swiperRef = useRef(null); // any o swiperType
     const [showContent, setShowContent] = useState(false);
-
+    const { theme } = useTheme()
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowContent(true);
-        }, 200);
+        }, 100);
 
         return () => {
             clearTimeout(timer);
@@ -37,7 +38,7 @@ const SliderItems = ({ products }) => {
     return (
         <section className={` transition-opacity ${showContent ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}>
-            <article className='relative  flex justify-center lg:max-w-[440px] md:max-w-2xl xl:max-w-[35rem] mx-auto'>
+            <article className='relative flex justify-center lg:max-w-[440px] md:max-w-2xl xl:max-w-[35rem] mx-auto'>
                 <Swiper
                     onSwiper={(swiper) => (swiperRef.current = swiper)}
                     modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
@@ -54,7 +55,8 @@ const SliderItems = ({ products }) => {
                     onSlideChange={() => null}>
                     {products.map((product) => (
                         <SwiperSlide key={product.id} >
-                            <article className='flex flex-col rounded-xl h-72 shadow-lg font-semibold border-gray-300 border'>
+                            <article className={`flex flex-col rounded-xl h-72 duration-500 transition-all font-semibold border-gray-300 border 
+                                               ${theme === 'light' ? 'bg-white text-black' : 'bg-gray-500 text-white'}`}>
                                 <figure className='h-3/4 relative overflow-hidden rounded-t-xl'>
                                     <img className='object-fill h-full w-full' src={product.images[0]} alt="" />
                                     <p className='absolute text-white top-2 left-4 flex items-center bg-red-700 rounded-xl px-2'><FiStar /> {product.rating}</p>
@@ -68,8 +70,8 @@ const SliderItems = ({ products }) => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <button className='hidden lg:block custom-btn top-[44%] -left-10 ' onClick={goPrev}> <FaChevronLeft /> </button>
-                <button className='hidden lg:block custom-btn top-[44%] -right-10' onClick={goNext}><FaChevronRight /></button>
+                <button className='hidden lg:block custom-btn top-[44%] -left-7 opacity-60' onClick={goPrev}> <FaChevronLeft /> </button>
+                <button className='hidden lg:block custom-btn top-[44%] -right-7 opacity-60' onClick={goNext}><FaChevronRight /></button>
 
             </article>
         </section>
