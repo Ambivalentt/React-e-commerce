@@ -24,8 +24,8 @@ Asegúrate de tener instalado lo siguiente:
 
 2. cd 'Nombre de la carpeta'
 3. npm install / yarn install
-4. npm run dev/ yarn dev
-5. npm i firebase
+4. npm i firebase
+5. npm run dev/ yarn dev
 
 #### Componentes
 1. ToggleTheme
