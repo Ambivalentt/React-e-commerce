@@ -5,6 +5,7 @@ import SliderContainer from "./ProductComponent/itemsSlider"
 import ItemsCategory from './ProductComponent/ItemsCategory'
 import ItemsDetails from './ProductComponent/ItemsDetails'
 import { useTheme } from "../Context/ThemeProvider"
+
 const ProductsNavbar = () => {
     const {theme} = useTheme()
     return (

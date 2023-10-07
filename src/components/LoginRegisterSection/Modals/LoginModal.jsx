@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const LoginModal = () => {
     const { toggleModal, singin } = useAuth()
-    const [error, setError] = useState('')
+    const [error, setError] = useState()
     const focusRef = useRef(null);
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -37,8 +37,9 @@ const LoginModal = () => {
         try {
             await singin(formData.email, formData.password)
             navigate('/')
+            toggleModal('')
         } catch (error) {
-            console.log(error.message);
+            setError(error.message);
         }
     }
 
@@ -50,6 +51,7 @@ const LoginModal = () => {
                 <button onClick={handleModalClose} className=" absolute right-5 top-3 text-xl text-red-900">
                     <BsFillXCircleFill />
                 </button>
+                <span className="fixed text-red-900">{error}</span>
                 <form onSubmit={handleFormSubmit} className="flex p-3 justify-center gap-y-2 items-center flex-col h-full lg:p-10" action="">
                     <div className="flex gap-x-5 flex-col xl:flex-row items-center">
                         <label className="xl:w-20 text-black font-semibold " htmlFor="email">Email</label>

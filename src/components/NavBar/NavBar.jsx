@@ -10,13 +10,23 @@ import { NavLink, Link } from 'react-router-dom'
 import LoginRegisterHandle from '../LoginRegisterSection/useModal';
 import { BsFillPersonFill } from "react-icons/bs";
 import { CartWidget } from '../CartWidget/CartWidget'
-
+import { useAuth } from '../Context/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
     // const [theme, setTheme] = useState(false);
     const [menuBtn, setMenuBtn] = useState(false);
-    const [loginBtn, setLoginBtn] = useState(false)
     const { theme, handleTheme } = useTheme()
+    const { user, logout } = useAuth()
+    const [showLoginDetails, setShowLoginDetails] = useState(true)
 
+    const handleLogout = async () => {
+        await logout()
+        setShowLoginDetails(true)
+    }
+
+    const showAccountDetails = () => {
+        setShowLoginDetails(prev => !prev)
+    }
     const handleMenuBtn = () => {
         setMenuBtn(prevStatus => !prevStatus)
     }
@@ -25,7 +35,7 @@ const Navbar = () => {
     }
 
     const handleLoginBtn = () => {
-        setLoginBtn(prev => !prev)
+        setShowLoginDetails(prev => !prev)
     }
     const routes = [
         {
@@ -65,20 +75,38 @@ const Navbar = () => {
                     ))}
                 </ul>
                 <section className='flex items-center gap-x-4'>
-                    <section className='hidden xl:block'>
-                        <LoginRegisterHandle />
-                    </section>
+                    {user === null ?
+                        <section className='hidden xl:block'>
+                            <LoginRegisterHandle />
+                        </section> :
+                        <section className='text-4xl hidden items-center relative  xl:flex'>
+                            <div onClick={showAccountDetails}>
+                                <BsFillPersonFill />
+                            </div>
+                            <div className={`absolute rounded-xl top-10 -left-9 bg-slate-800 py-4 px-4  text-xl ${showLoginDetails ? 'hidden' : 'block'}`}>
+                                <span className='text-white'>Email: {user.email}</span>
+                                <button className='bg-gray-200 text-slate-800 font-semibold px-2 mt-4 rounded-xl' onClick={handleLogout}>Logout</button>
+                            </div>
+                        </section>}
+
                     <section className='text-4xl xl:hidden relative'>
                         <button className='flex items-center'
                             onClick={handleLoginBtn}>
                             <BsFillPersonFill />
                         </button>
-                        <div className={`absolute w-40 -left-[3.6rem] -bottom-12 bg-gray-300 h-12 flex items-center justify-center rounded-xl
-                                ${loginBtn ? 'block' : 'hidden'}`}>
-                            <LoginRegisterHandle />
-                        </div>
+                        {user === null ?
+                            <div className={`absolute w-40 -left-[3.6rem] -bottom-12 bg-gray-300 h-12 flex items-center justify-center rounded-xl
+                               ${showLoginDetails ? 'hidden' : 'block'}`}>
+                                <LoginRegisterHandle />
+                            </div> :
+                            <div className={`absolute rounded-xl  top-10 -left-9 bg-slate-800 py-4 px-4  text-xl ${showLoginDetails ? 'hidden' : 'block'}`}>
+                                <span className='text-white'>Email: {user.email}</span>
+                                <button className='bg-gray-200 text-slate-800 font-semibold px-2 mt-4 rounded-xl' onClick={handleLogout}>Logout</button>
+                            </div>
+
+                        }
                     </section>
-                    <CartWidget/>
+                    <CartWidget />
                     <div className={`darkTheme_Container border ${theme === "light" ? 'border-white' : 'border-black'}`} onClick={handleThemeBtn}>
                         <div className={`darkTheme_toggle ${theme === "light" ? 'active_darktheme' : 'inactive_darktheme'}`}></div>
                     </div>

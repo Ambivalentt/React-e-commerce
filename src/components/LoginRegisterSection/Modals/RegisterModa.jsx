@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 
 const RegisterModal = () => {
-    const { toggleModal, singup } = useAuth()
+    const { toggleModal, singup, setIsModalOpen } = useAuth()
     const focusRef = useRef(null);
     const navigate = useNavigate()
+    const [error, setError] = useState ()
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -37,10 +38,11 @@ const RegisterModal = () => {
         e.preventDefault();
         try {
            await singup(formData.name, formData.email, formData.password)
-          console.log('ejecutandomeaa')
             navigate('/')
+            toggleModal('')
+            setError('')
         }catch(error){
-            console.log(error.message)
+            setError(error.message)
         }
     }
 
@@ -51,6 +53,7 @@ const RegisterModal = () => {
                 <button onClick={handleModalClose} className=" absolute right-5 top-3 text-xl text-red-900">
                     <BsFillXCircleFill />
                 </button>
+                <span className="text-red-900 text-sm fixed">{error}</span>
                 <form onSubmit={handleFormSubmit} className="flex justify-center gap-y-2 items-center flex-col  h-full p-10" action="">
                     <div className="flex gap-x-5 flex-col xl:flex-row items-center">
                         <label className="xl:w-20 font-semibold text-black" htmlFor="name ">Name</label>

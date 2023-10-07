@@ -1,6 +1,6 @@
 import { useCartWidget } from '../Context/CartProvider'
 import { BsCart3 } from "react-icons/bs";
-import { BsFillTrash3Fill, BsFillXCircleFill } from "react-icons/bs";
+import {  BsFillXCircleFill } from "react-icons/bs";
 import MyTable from './TableProducts';
 
 export const CartWidget = () => {

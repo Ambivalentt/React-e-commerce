@@ -1,16 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { useCartWidget } from '../Context/CartProvider'
 import CartEmpty from '../../assets/CartEmpty.png';
 import { BsFillDashCircleFill } from "react-icons/bs";
-
+import CheckoutForm from '../CheckOutForm/CheckOutForm';
 
 function MyTable() {
-  const { cartProducts, removeFromCart, priceTotalProducts, setPriceTotalProducts } = useCartWidget()
+  const { cartProducts, removeFromCart, priceTotalProducts, setPriceTotalProducts, closeCheckout, setCloseCheckOut } = useCartWidget();
+
   const totalPrice = cartProducts.reduce((acc, product) => {
     const productPrice = parseFloat(product.totalPrice)
     return (acc + productPrice)
-  }, 0)
+  }, 0);
+  
+ const handleShowCheckOut = () =>{
+  setCloseCheckOut(true)
+ }
 
   useEffect(() => {
     setPriceTotalProducts(totalPrice);
@@ -57,8 +62,14 @@ function MyTable() {
             </Table>
           </TableContainer>
           <div className='flex justify-center pt-3'>
-            <button className='bg-green-700 font-semibold w-60 py-1 flex justify-center items-center hover:bg-green-900 rounded-xl'>Purchase: ${priceTotalProducts.toFixed(2)}</button>
+            <button onClick={handleShowCheckOut} className='bg-green-700 font-semibold w-60 py-1 flex justify-center items-center hover:bg-green-900 rounded-xl'>
+              Purchase: ${priceTotalProducts.toFixed(2)}
+            </button>
           </div>
+          {closeCheckout ?
+            <div className='fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center'>
+              <CheckoutForm />
+            </div> : null}
         </section>
       ) : (
         <section className='w-full h-screen flex justify-center items-center pb-40'>

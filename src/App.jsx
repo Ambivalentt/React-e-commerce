@@ -10,6 +10,8 @@ import AboutUs from './components/AboutUs/AboutUs';
 import Contact from './components/Contact/Contact';
 import ProductsNavbar from './components/Product/Product';
 import { CartProvider } from './components/Context/CartProvider';
+import PageNotFound from './Layouts/PageNotFound';
+
 // import {uploadProducts} from './components/Firebase/bulkProducts'
 
 
@@ -32,6 +34,7 @@ function App() {
               <Route path='/promotions' element={<Promotions />} />
               <Route path='/about-us' element={<AboutUs />} />
               <Route path='/contact' element={<Contact />} />
+              <Route path='*' element={<PageNotFound/>}/>
             </Routes>
           </BrowserRouter>
         </CartProvider>
