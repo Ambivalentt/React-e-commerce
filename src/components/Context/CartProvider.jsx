@@ -7,7 +7,9 @@ export const CartProvider = ({children}) => {
     const [cartProducts, setCartProducts] = useState(() => Storage.get('products') || [])
     const [priceTotalProducts, setPriceTotalProducts] = useState(0)
     const [closeCheckout, setCloseCheckOut] = useState(false)
-
+    const [showCheckoutMessage, setShowCheckoutMessage] = useState(false)
+    const [orders, setOrders] = useState([])
+    console.log(orders)
     const removeFromCart = (productKey) => {
         setCartProducts((prev) => prev.filter((product) => product.key !== productKey));
       };
@@ -15,6 +17,7 @@ export const CartProvider = ({children}) => {
     const handleCart = () =>{
         setCartWidget(prev => !prev)
     }
+ 
 
     useEffect(() => {
         Storage.add('products', cartProducts)
@@ -29,7 +32,11 @@ export const CartProvider = ({children}) => {
         setPriceTotalProducts,
         removeFromCart,
         closeCheckout,
-        setCloseCheckOut
+        setCloseCheckOut,
+        showCheckoutMessage,
+        setShowCheckoutMessage,
+        orders,
+        setOrders
         }}>
             {children}
         </CartContext.Provider>

@@ -11,13 +11,16 @@ import LoginRegisterHandle from '../LoginRegisterSection/useModal';
 import { BsFillPersonFill } from "react-icons/bs";
 import { CartWidget } from '../CartWidget/CartWidget'
 import { useAuth } from '../Context/AuthProvider';
-import { useNavigate } from 'react-router-dom';
+import { useCartWidget } from '../Context/CartProvider';
+import OrdersMenu from '../CheckOutForm/Orders'
 const Navbar = () => {
     // const [theme, setTheme] = useState(false);
     const [menuBtn, setMenuBtn] = useState(false);
     const { theme, handleTheme } = useTheme()
     const { user, logout } = useAuth()
     const [showLoginDetails, setShowLoginDetails] = useState(true)
+    const { showCheckoutMessage, orders } = useCartWidget()
+    const [showOrders, setShowOrders] = useState(false)
 
     const handleLogout = async () => {
         await logout()
@@ -75,6 +78,8 @@ const Navbar = () => {
                     ))}
                 </ul>
                 <section className='flex items-center gap-x-4'>
+                    {orders.length > 0 && user !== null ? <OrdersMenu /> : ''}
+
                     {user === null ?
                         <section className='hidden xl:block'>
                             <LoginRegisterHandle />
@@ -124,6 +129,11 @@ const Navbar = () => {
                 </ul>
             </nav>
             {/* /////// */}
+            {showCheckoutMessage && (
+                <div className='bg-blue-500 text-white px-4 font-bold py-2 rounded  fixed mt-20 z-40 right-0'>
+                    Thank you for your purchase
+                </div>
+            )}
         </header>
     )
 }
